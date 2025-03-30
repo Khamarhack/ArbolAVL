@@ -1,3 +1,9 @@
+/*******************************************
+Fecha: 26 marzo 2025
+Autor: Santiago Camargo
+Tema: Taller Arboles
+Estructuras de datos
+******************************************/
 #include "NodoBinarioAVL.h"
 
 using namespace std;
