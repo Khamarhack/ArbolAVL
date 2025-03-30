@@ -8,32 +8,48 @@ Estructuras de datos
 #define ARBOLBINARIOAVL_H
 
 #include "NodoBinarioAVL.h"
-template <class T>
 
-class ArbolBinarioAVL{
-	protected:
-		NodoBinarioAVL<T> *raiz;
-	public:
-		ArbolBinarioAVL();
-		~ArbolBinarioAVL();
-		void setRaiz(NodoBinarioAVL<T>* raiz);
-		NodoBinarioAVL<T>* getRaiz();
-		bool esVacio();
-		T& datoRaiz();
-		int altura(NodoBinarioAVL<T> *inicio);
-		int tamano(NodoBinarioAVL<T> *inicio);
-		NodoBinarioAVL<T>* giroDerecha(NodoBinarioAVL<T>*& inicio);
-		NodoBinarioAVL<T>* giroIzquierdaDerecha(NodoBinarioAVL<T>* &padre);
-		NodoBinarioAVL<T>* giroIzquierda(NodoBinarioAVL<T>*& inicio);
-		NodoBinarioAVL<T>* giroDerechaIzquierda(NodoBinarioAVL<T>* &padre);
-		bool insertar(T& val);
-		bool eliminar(T& val);
-		bool buscar(T& val);
-		void preOrden(NodoBinarioAVL<T> *inicio);
-		void inOrden(NodoBinarioAVL<T> *inicio);
-		void posOrden(NodoBinarioAVL<T> *inicio);
-		void nivelOrden(NodoBinarioAVL<T> *inicio);
+// Clase que representa un Árbol Binario AVL genérico
+template <class T>
+class ArbolBinarioAVL {
+protected:
+    NodoBinarioAVL<T> *raiz; // Puntero a la raíz del árbol
+
+public:
+    // Constructor y destructor
+    ArbolBinarioAVL();
+    ~ArbolBinarioAVL();
+    
+    // Métodos para manejar la raíz
+    void setRaiz(NodoBinarioAVL<T>* raiz);
+    NodoBinarioAVL<T>* getRaiz();
+    
+    // Métodos para verificar el estado del árbol
+    bool esVacio();
+    T& datoRaiz();
+    
+    // Métodos auxiliares
+    int altura(NodoBinarioAVL<T> *inicio); // Calcula la altura del árbol
+    int tamano(NodoBinarioAVL<T> *inicio); // Calcula el tamaño del árbol
+    
+    // Rotaciones para mantener el balance del árbol
+    NodoBinarioAVL<T>* giroDerecha(NodoBinarioAVL<T>*& inicio);
+    NodoBinarioAVL<T>* giroIzquierdaDerecha(NodoBinarioAVL<T>* &padre);
+    NodoBinarioAVL<T>* giroIzquierda(NodoBinarioAVL<T>*& inicio);
+    NodoBinarioAVL<T>* giroDerechaIzquierda(NodoBinarioAVL<T>* &padre);
+    
+    // Operaciones sobre el árbol
+    bool insertar(T& val); // Inserta un valor en el árbol
+    bool eliminar(T& val); // Elimina un valor del árbol
+    bool buscar(T& val);   // Busca un valor en el árbol
+    
+    // Recorridos del árbol
+    void preOrden(NodoBinarioAVL<T> *inicio); // Recorrido en preorden
+    void inOrden(NodoBinarioAVL<T> *inicio);  // Recorrido en inorden
+    void posOrden(NodoBinarioAVL<T> *inicio); // Recorrido en posorden
+    void nivelOrden(NodoBinarioAVL<T> *inicio); // Recorrido por niveles
 };
+
 #include "ArbolBinarioAVL.hxx"
 
-#endif //ARBOLBINARIOAVL_H
+#endif // ARBOLBINARIOAVL_H
